@@ -90,4 +90,34 @@ createGrid.addEventListener('click', function() {
 
 })
 
+//generare 16 bombe causali 
 
+    //creo una constante minima 
+    const min = 1;
+    //creo una costante massima 
+    const max = 100;
+
+    //genero 16 numeri random 
+    const randomNumbers = 16;
+
+    //creo un array vuoto dove inserire le "bombe"
+    const arrayRandomBombsCell = [];
+
+    while(arrayRandomBombsCell.length < randomNumbers){
+        const numRandom = Math.floor(Math.random() * max ) + min;
+        
+        if(arrayRandomBombsCell.includes(numRandom) === false){
+
+            arrayRandomBombsCell.push(numRandom);
+        }
+    }
+     console.log(arrayRandomBombsCell);
+    
+    // const randomBombCell = parseInt(Math.floor(Math.random() * max) + 1);
+
+    
+    
+
+    
+//generare una casella rossa se l' utente clicca su una bomba 
+//creare un contatore che conti le celle che non hanno una bomba 
