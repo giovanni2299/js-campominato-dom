@@ -19,6 +19,7 @@ createGrid.addEventListener('click', function() {
     //creare la griglia 
 
     const gridElement = document.querySelector('.grid');
+
     gridElement.classList.remove('pointer-none');
 
     //creare le celle all interno della griglia 
@@ -146,19 +147,28 @@ createGrid.addEventListener('click', function() {
 
         cellElement.addEventListener('click', function(){
 
-            cellElement.classList.toggle('bg-dark-green');
+            cellElement.classList.add('bg-dark-green');
             scoreViewer.innerHTML++
 
             for(let i = 0; i < arrayRandomBombsCell.length; i++){
 
+                //creo una variabile e le assegno il valore dell array per visulalizzare ogni elemento all interno 
                 const cellWithBomb = arrayRandomBombsCell[i];
 
                 if(parseInt(cellElement.innerHTML) === cellWithBomb){
 
-                    console.log('is the same')
+                    // console.log('is the same')
+
+                    //aggiungo il bg-dark-green quando colpisco una cella senza bombe
                     cellElement.classList.remove('bg-dark-green')
+
+                    //aggiungo la classe bg-red quando clicco sulla bomba 
                     cellElement.classList.add('bg-red')
+
+                    //tolgo il cursor pointer quando prendo una bomba in modo che non possa cliccare più nulla
                     gridElement.classList.add('pointer-none')
+
+                    //decremento il valore dello scoreViewer se prendo una bomba 
                     scoreViewer.innerHTML--
 
                 }
