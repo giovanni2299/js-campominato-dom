@@ -52,13 +52,6 @@ createGrid.addEventListener('click', function() {
         console.log(arrayRandomBombsCell);
 
 
-
-
-
-
-
-
-
         if(selectElementDOM.value === 'easy'){
 
             dimention = 10;
@@ -115,7 +108,20 @@ createGrid.addEventListener('click', function() {
 
         //ad ogni re-click le celle perdono il colore dark green
         cellElement.addEventListener('click', function(){
+
             cellElement.classList.toggle('bg-dark-green');
+
+            for(let i = 0; i < arrayRandomBombsCell.length; i++){
+
+                const cellWithBomb = arrayRandomBombsCell[i];
+
+                if(parseInt(cellElement.innerHTML) === cellWithBomb){
+
+                    console.log('is the same')
+                    cellElement.classList.remove('bg-dark-green')
+                    cellElement.classList.add('bg-red')
+                }
+            }
             console.log(num);
         })
     }
