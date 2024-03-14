@@ -164,6 +164,10 @@ createGrid.addEventListener('click', function() {
 
                     //aggiungo la classe bg-red quando clicco sulla bomba 
                     cellElement.classList.add('bg-red')
+                    for(let j = 0; j < num.length; j++ ){
+                        console.log(num[j])
+                    }
+                    // cellElement.classList.remove('opacity')
 
                     //tolgo il cursor pointer quando prendo una bomba in modo che non possa cliccare più nulla
                     gridElement.classList.add('pointer-none')

@@ -83,6 +83,7 @@ body{
 
 .bg-red{
     background-color: rgb(155, 1, 1);
+    
 }
 
 .footer-page, .score-title{
@@ -93,3 +94,4 @@ body{
 .pointer-none{
     pointer-events: none ;
 }
+
