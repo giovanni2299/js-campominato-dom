@@ -84,7 +84,11 @@ body{
     background-color: rgb(155, 1, 1);
 }
 
-.footer-page{
+.footer-page, .score-title{
     background-color: white;
     padding: 50px;
+}
+
+.pointer-none{
+    pointer-events: none ;
 }

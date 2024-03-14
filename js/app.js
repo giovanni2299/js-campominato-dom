@@ -19,6 +19,7 @@ createGrid.addEventListener('click', function() {
     //creare la griglia 
 
     const gridElement = document.querySelector('.grid');
+    gridElement.classList.remove('pointer-none');
 
     //creare le celle all interno della griglia 
 
@@ -33,7 +34,38 @@ createGrid.addEventListener('click', function() {
         //creo una constante minima 
         const min = 1;
         //creo una costante massima 
-        const max = 100;
+        let max ;
+
+        if(selectElementDOM.value === 'easy'){
+
+            dimention = 10;
+
+            max = 100;
+
+            gridElement.classList.add('easy');
+
+            gridElement.classList.remove('medium', 'hard');
+
+        }else if(selectElementDOM.value === 'medium'){
+
+            dimention = 9;
+
+            max = 81;
+
+            gridElement.classList.add('medium')
+
+            gridElement.classList.remove('easy', 'hard');
+
+        } else{
+
+            dimention = 7;
+
+            max = 49;
+
+            gridElement.classList.add('hard')
+
+            gridElement.classList.remove('medium', 'easy');
+        }
 
         //genero 16 numeri random 
         const randomNumbers = 16;
@@ -52,30 +84,30 @@ createGrid.addEventListener('click', function() {
         console.log(arrayRandomBombsCell);
 
 
-        if(selectElementDOM.value === 'easy'){
+        // if(selectElementDOM.value === 'easy'){
 
-            dimention = 10;
+        //     dimention = 10;
 
-            gridElement.classList.add('easy');
+        //     gridElement.classList.add('easy');
 
-            gridElement.classList.remove('medium', 'hard');
+        //     gridElement.classList.remove('medium', 'hard');
 
-        }else if(selectElementDOM.value === 'medium'){
+        // }else if(selectElementDOM.value === 'medium'){
 
-            dimention = 9;
+        //     dimention = 9;
 
-            gridElement.classList.add('medium')
+        //     gridElement.classList.add('medium')
 
-            gridElement.classList.remove('easy', 'hard');
+        //     gridElement.classList.remove('easy', 'hard');
 
-        } else{
+        // } else{
 
-            dimention = 7;
+        //     dimention = 7;
 
-            gridElement.classList.add('hard')
+        //     gridElement.classList.add('hard')
 
-            gridElement.classList.remove('medium', 'easy');
-        }
+        //     gridElement.classList.remove('medium', 'easy');
+        // }
 
         //moltiplico le celle per ottenere una griglia 10 x 10
         const squereDimention = dimention * dimention;
@@ -106,10 +138,16 @@ createGrid.addEventListener('click', function() {
 
         gridElement.appendChild(cellElement);
 
+
+        const scoreViewer = document.querySelector('.score-viewer');
+        scoreViewer.innerHTML = 0;
+
         //ad ogni re-click le celle perdono il colore dark green
+
         cellElement.addEventListener('click', function(){
 
             cellElement.classList.toggle('bg-dark-green');
+            scoreViewer.innerHTML++
 
             for(let i = 0; i < arrayRandomBombsCell.length; i++){
 
@@ -120,6 +158,9 @@ createGrid.addEventListener('click', function() {
                     console.log('is the same')
                     cellElement.classList.remove('bg-dark-green')
                     cellElement.classList.add('bg-red')
+                    gridElement.classList.add('pointer-none')
+                    scoreViewer.innerHTML--
+
                 }
             }
             console.log(num);
