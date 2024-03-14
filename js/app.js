@@ -27,6 +27,38 @@ createGrid.addEventListener('click', function() {
         let dimention ;
 
         //provo a fare il bonus scegliendo la difficoltà 
+
+        //generare 16 bombe causali 
+
+        //creo una constante minima 
+        const min = 1;
+        //creo una costante massima 
+        const max = 100;
+
+        //genero 16 numeri random 
+        const randomNumbers = 16;
+
+        //creo un array vuoto dove inserire le "bombe"
+        const arrayRandomBombsCell = [];
+
+        while(arrayRandomBombsCell.length < randomNumbers){
+            const numRandom = Math.floor(Math.random() * max ) + min;
+            
+            if(arrayRandomBombsCell.includes(numRandom) === false){
+
+                arrayRandomBombsCell.push(numRandom);
+            }
+        }
+        console.log(arrayRandomBombsCell);
+
+
+
+
+
+
+
+
+
         if(selectElementDOM.value === 'easy'){
 
             dimention = 10;
@@ -90,28 +122,7 @@ createGrid.addEventListener('click', function() {
 
 })
 
-//generare 16 bombe causali 
 
-    //creo una constante minima 
-    const min = 1;
-    //creo una costante massima 
-    const max = 100;
-
-    //genero 16 numeri random 
-    const randomNumbers = 16;
-
-    //creo un array vuoto dove inserire le "bombe"
-    const arrayRandomBombsCell = [];
-
-    while(arrayRandomBombsCell.length < randomNumbers){
-        const numRandom = Math.floor(Math.random() * max ) + min;
-        
-        if(arrayRandomBombsCell.includes(numRandom) === false){
-
-            arrayRandomBombsCell.push(numRandom);
-        }
-    }
-     console.log(arrayRandomBombsCell);
     
     // const randomBombCell = parseInt(Math.floor(Math.random() * max) + 1);
 
