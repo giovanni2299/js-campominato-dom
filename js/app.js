@@ -150,33 +150,45 @@ createGrid.addEventListener('click', function() {
             cellElement.classList.add('bg-dark-green');
             scoreViewer.innerHTML++
 
-            for(let i = 0; i < arrayRandomBombsCell.length; i++){
 
-                //creo una variabile e le assegno il valore dell array per visulalizzare ogni elemento all interno 
-                const cellWithBomb = arrayRandomBombsCell[i];
+            const allTheCells = document.querySelectorAll('.cell') //sorta di array
 
-                if(parseInt(cellElement.innerHTML) === cellWithBomb){
-
-                    // console.log('is the same')
-
-                    //aggiungo il bg-dark-green quando colpisco una cella senza bombe
-                    cellElement.classList.remove('bg-dark-green')
-
-                    //aggiungo la classe bg-red quando clicco sulla bomba 
-                    cellElement.classList.add('bg-red')
-                    for(let j = 0; j < num.length; j++ ){
-                        console.log(num[j])
-                    }
-                    // cellElement.classList.remove('opacity')
-
-                    //tolgo il cursor pointer quando prendo una bomba in modo che non possa cliccare più nulla
-                    gridElement.classList.add('pointer-none')
-
-                    //decremento il valore dello scoreViewer se prendo una bomba 
-                    scoreViewer.innerHTML--
-
+            for(let i = 0; i < allTheCells.length; i++){
+                const singleCell = allTheCells[i] //tutte le celle della griglia
+                const singleCellNumber = parseInt(singleCell.innerHTML);
+                if(arrayRandomBombsCell.includes(singleCellNumber) === true){
+                    singleCell.classList.add('bg-red')
                 }
             }
+            
+
+            // for(let i = 0; i < arrayRandomBombsCell.length; i++){
+
+            //     //creo una variabile e le assegno il valore dell array per visulalizzare ogni elemento all interno 
+            //     const cellWithBomb = arrayRandomBombsCell[i] - 1;
+            //     allTheCells[cellWithBomb].classList.add('bg-red')
+
+            //     if(parseInt(cellElement.innerHTML) === cellWithBomb){
+
+            //         // console.log('is the same')
+
+            //         //aggiungo il bg-dark-green quando colpisco una cella senza bombe
+            //         cellElement.classList.remove('bg-dark-green')
+
+            //         //aggiungo la classe bg-red quando clicco sulla bomba 
+            //         cellElement.classList.add('bg-red')
+                   
+                    
+            
+
+            //         //tolgo il cursor pointer quando prendo una bomba in modo che non possa cliccare più nulla
+            //         gridElement.classList.add('pointer-none')
+
+            //         //decremento il valore dello scoreViewer se prendo una bomba 
+            //         scoreViewer.innerHTML--
+
+            //     }
+            // }
             console.log(num);
         })
     }
