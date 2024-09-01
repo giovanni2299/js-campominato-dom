@@ -154,9 +154,13 @@ createGrid.addEventListener('click', function() {
             const allTheCells = document.querySelectorAll('.cell') //sorta di array
 
             for(let i = 0; i < allTheCells.length; i++){
+
                 const singleCell = allTheCells[i] //tutte le celle della griglia
+
                 const singleCellNumber = parseInt(singleCell.innerHTML);
+
                 if(arrayRandomBombsCell.includes(singleCellNumber) === true){
+                    
                     singleCell.classList.add('bg-red')
                 }
             }
